@@ -1,0 +1,25 @@
+package day5_problem;
+
+import java.util.Scanner ;
+
+public class Factor {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number :");
+		
+		int N = sc.nextInt();
+		
+		System.out.println("Prime factors of "+ N + " are");
+		
+		for(int i=2; i*i <= N;i++) {
+			while (N%i == 0) {
+				System.out.print(i + " ");
+				N /= i ;
+			}
+		}
+		
+		if(N > 1) {
+			System.out.print(N);
+		}
+	}
+}
