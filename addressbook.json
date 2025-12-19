@@ -1,0 +1,20 @@
+[
+  {
+    "firstName": "Vinoth",
+    "email": "vinoth@gmail.com",
+    "city": "Chennai",
+    "phone": "9897878776"
+  },
+  {
+    "firstName": "Balamurugan",
+    "email": "bala@gmail.com",
+    "city": "Kumbakonam",
+    "phone": "8776655443"
+  },
+  {
+    "firstName": "Suresh",
+    "email": "suresh@gmail.com",
+    "city": "Bangalore",
+    "phone": "8876763432"
+  }
+]
