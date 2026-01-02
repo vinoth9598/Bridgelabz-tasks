@@ -1,0 +1,139 @@
+
+mysql> create database payroll_service;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| information_schema |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| sakila             |
+| students           |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use payroll_service ;
+Database changed
+mysql> create table employee_payroll (id int not null auto_increment,name varchar(50) not null, salary decimal(10,2) not null, start Date not null, primary key (id) ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table employee_payroll (id int not null auto_increment,name varchar(50) not null, salary decimal(10,2) not null, start Date not null, primary key (id)) ;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe tables ;
+ERROR 1146 (42S02): Table 'payroll_service.tables' doesn't exist
+mysql> show tables ;
++---------------------------+
+| Tables_in_payroll_service |
++---------------------------+
+| employee_payroll          |
++---------------------------+
+1 row in set (0.01 sec)
+
+mysql> describe employee_payroll ;
++--------+---------------+------+-----+---------+----------------+
+| Field  | Type          | Null | Key | Default | Extra          |
++--------+---------------+------+-----+---------+----------------+
+| id     | int           | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(50)   | NO   |     | NULL    |                |
+| salary | decimal(10,2) | NO   |     | NULL    |                |
+| start  | date          | NO   |     | NULL    |                |
++--------+---------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> INSERT INTO employee_payroll (name,salary,start) VALUES ('Vinoth','300000.00','2025-01-02'),('Vignesh','500000','2026-01-03'),('Sathish','400000.00','2026-01-04');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll ;
++----+---------+-----------+------------+
+| id | name    | salary    | start      |
++----+---------+-----------+------------+
+|  1 | Vinoth  | 300000.00 | 2025-01-02 |
+|  2 | Vignesh | 500000.00 | 2026-01-03 |
+|  3 | Sathish | 400000.00 | 2026-01-04 |
++----+---------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+mysql> select salary from employee_payroll where name = 'Vinoth' ;
++-----------+
+| salary    |
++-----------+
+| 300000.00 |
++-----------+
+1 row in set (0.00 sec)
+mysql> select * from employee_payroll where start between cast('2026-01-02' As Date) and Date(now())  ;
++----+--------+-----------+------------+
+| id | name   | salary    | start      |
++----+--------+-----------+------------+
+|  1 | Vinoth | 300000.00 | 2026-01-02 |
++----+--------+-----------+------------+
+1 row in set (0.00 sec)
+mysql> update employee_payroll set gender = 'M' where name='vinoth' or name='vignesh' or name='sathish' ;
+Query OK, 3 rows affected (0.00 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update employee_payroll set gender='F' where name='trisha' ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll ;
++----+---------+--------+-----------+------------+
+| id | name    | gender | salary    | start      |
++----+---------+--------+-----------+------------+
+|  1 | Vinoth  | M      | 300000.00 | 2026-01-02 |
+|  2 | Vignesh | M      | 500000.00 | 2026-01-03 |
+|  3 | Sathish | M      | 400000.00 | 2026-01-04 |
+|  4 | Trisha  | F      | 100000.00 | 2025-01-01 |
++----+---------+--------+-----------+------------+
+4 rows in set (0.00 sec)
+ select gender, sum(salary) from employee_payroll group by gender ;
++--------+-------------+
+| gender | sum(salary) |
++--------+-------------+
+| M      |  1200000.00 |
+| F      |   600000.00 |
++--------+-------------+
+2 rows in set (0.00 sec)
+ select gender, avg(salary) from employee_payroll group by gender ;
++--------+---------------+
+| gender | avg(salary)   |
++--------+---------------+
+| M      | 400000.000000 |
+| F      | 200000.000000 |
++--------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> select gender,min(salary) from employee_payroll group by gender ;
++--------+-------------+
+| gender | min(salary) |
++--------+-------------+
+| M      |   300000.00 |
+| F      |   100000.00 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select gender , max(salary) from employee_payroll group by gender ;
++--------+-------------+
+| gender | max(salary) |
++--------+-------------+
+| M      |   500000.00 |
+| F      |   300000.00 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select gender,count(*) AS count from employee_payroll group by gender ;
++--------+-------+
+| gender | count |
++--------+-------+
+| M      |     3 |
+| F      |     3 |
++--------+-------+
+2 rows in set (0.00 sec)
