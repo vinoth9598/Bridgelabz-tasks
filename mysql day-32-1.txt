@@ -1,0 +1,94 @@
+//AddressBookSystem 
+
+mysql> create database AddressBookSystem ;
+
+mysql> CREATE TABLE AddressBook (
+    -> id int auto_increment primary key ,
+    -> first_name varchar(50) not null,
+    -> last_name varchar(50) not null,
+    -> address varchar(150) not null,
+    -> city varchar(50) not null,
+    -> state varchar(50) not null,
+    -> zip varchar(10) not null,
+    -> phone_number varchar(15) ,
+    -> email varchar(100) unique );
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> describe AddressBook ;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int          | NO   | PRI | NULL    | auto_increment |
+| first_name   | varchar(50)  | NO   |     | NULL    |                |
+| last_name    | varchar(50)  | NO   |     | NULL    |                |
+| address      | varchar(150) | NO   |     | NULL    |                |
+| city         | varchar(50)  | NO   |     | NULL    |                |
+| state        | varchar(50)  | NO   |     | NULL    |                |
+| zip          | varchar(10)  | NO   |     | NULL    |                |
+| phone_number | varchar(15)  | YES  |     | NULL    |                |
+| email        | varchar(100) | YES  | UNI | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+
+mysql> INSERT INTO AddressBook
+    -> (first_name, last_name, address, city, state, zip, phone_number, email)
+    -> VALUES
+    -> ('Anita', 'Verma', 'Sector 15', 'Noida', 'Uttar Pradesh', '201301', '9123456780', 'anita.verma@gmail.com'),
+    -> ('Suresh', 'Kumar', 'Anna Nagar', 'Chennai', 'Tamil Nadu', '600040', '9988776655', 'suresh.k@gmail.com');
+Query OK, 2 rows affected (0.09 sec)
+
+mysql> select * from addressbook ;
++----+------------+-----------+------------+---------+---------------+--------+--------------+-----------------------+
+| id | first_name | last_name | address    | city    | state         | zip    | phone_number | email                 |
++----+------------+-----------+------------+---------+---------------+--------+--------------+-----------------------+
+|  1 | Anita      | Verma     | Sector 15  | Noida   | Uttar Pradesh | 201301 | 9123456780   | anita.verma@gmail.com |
+|  2 | Suresh     | Kumar     | Anna Nagar | Chennai | Tamil Nadu    | 600040 | 9988776655   | suresh.k@gmail.com    |
++----+------------+-----------+------------+---------+---------------+--------+--------------+-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> update addressbook set address='45 lake view road ', city='pune' , state='maharashtra', phone_number='7676878776' where first_name = 'Suresh' ;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Delete from addressbook where first name = 'anitha' ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select city, state from addressbook ;
++-------+---------------+
+| city  | state         |
++-------+---------------+
+| Noida | Uttar Pradesh |
+| pune  | maharashtra   |
++-------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> select count(city) as size from addressbook ;
++------+
+| size |
++------+
+|    2 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select first_name,last_name,address,city,state,phone_number,email
+    -> from addressbook
+    -> order by first_name asc ;
++------------+-----------+--------------------+-------+---------------+--------------+-----------------------+
+| first_name | last_name | address            | city  | state         | phone_number | email                 |
++------------+-----------+--------------------+-------+---------------+--------------+-----------------------+
+| Anita      | Verma     | Sector 15          | Noida | Uttar Pradesh | 9123456780   | anita.verma@gmail.com |
+| Suresh     | Kumar     | 45 lake view road  | pune  | maharashtra   | 7676878776   | suresh.k@gmail.com    |
++------------+-----------+--------------------+-------+---------------+--------------+-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> update addressbook set address_book_name = 'PersonalBook' , address_book_type = 'Family' where first_name = 'anita' ;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook ;
++----+------------+-----------+--------------------+-------+---------------+--------+--------------+-----------------------+-------------------+-------------------+
+| id | first_name | last_name | address            | city  | state         | zip    | phone_number | email                 | address_book_name | address_book_type |
++----+------------+-----------+--------------------+-------+---------------+--------+--------------+-----------------------+-------------------+-------------------+
+|  1 | Anita      | Verma     | Sector 15          | Noida | Uttar Pradesh | 201301 | 9123456780   | anita.verma@gmail.com | PersonalBook      | Family            |
+|  2 | Suresh     | Kumar     | 45 lake view road  | pune  | maharashtra   | 600040 | 7676878776   | suresh.k@gmail.com    | NULL              | NULL              |
++----+------------+-----------+--------------------+-------+---------------+--------+--------------+-----------------------+-------------------+-------------------+
+2 rows in set (0.00 sec)
