@@ -2,13 +2,12 @@
 import java.util.ArrayList ;
 import java.util.List ;
 public class AddressBookService {
-    private final List<Contact> contactList = new ArrayList<>();
+    private final List<Person> personList = new ArrayList<>();
 
-    public void addContact(Contact contact){
-        contactList.add(contact);
+    public void addPerson(Person person){
+        personList.add(person);
+        System.out.println("Person added successfully!");
     }
 
-    public List<Contact> getAllContacts(){
-        return contactList ;
-    }
+    public List<Person> getPersonList(){return personList;}
 }

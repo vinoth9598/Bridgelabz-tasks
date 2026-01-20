@@ -1,5 +1,5 @@
 
-public class Contact {
+public class Person {
 
     private String firstName ;
     private String lastname ;
@@ -9,7 +9,7 @@ public class Contact {
     private int zip ;
     private String phoneNumber ;
 
-    public Contact (String firstName, String lastname, String address,
+    public Person (String firstName, String lastname, String address,
                     String city, String state, int zip , String phoneNumber
                     ){
         this.firstName = firstName ;
