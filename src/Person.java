@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 public class Person {
 
     private String firstName;
@@ -24,6 +24,19 @@ public class Person {
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Person person = (Person) obj;
+        return firstName.equalsIgnoreCase(person.firstName)
+                && lastName.equalsIgnoreCase(person.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName.toLowerCase(), lastName.toLowerCase());
+    }
 
     @Override
     public String toString() {
