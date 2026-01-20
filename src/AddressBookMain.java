@@ -8,51 +8,52 @@ public class AddressBookMain {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        List<Person> personList = new ArrayList<>();
-        AddressBookService service = new AddressBookService(personList);
+        AddressBookService service = new AddressBookService();
+        boolean continueAdding = true ;
 
-        System.out.println("Enter First Name:");
-        String firstName = scanner.nextLine();
+        while(continueAdding){
+            System.out.println("\nEnter First Name:");
+            String firstName = scanner.nextLine();
 
-        System.out.println("Enter Last Name:");
-        String lastName = scanner.nextLine();
+            System.out.println("Enter Last Name:");
+            String lastName = scanner.nextLine();
 
-        System.out.println("Enter Address:");
-        String address = scanner.nextLine();
+            System.out.println("Enter Address:");
+            String address = scanner.nextLine();
 
-        System.out.println("Enter City:");
-        String city = scanner.nextLine();
+            System.out.println("Enter City:");
+            String city = scanner.nextLine();
 
-        System.out.println("Enter State:");
-        String state = scanner.nextLine();
+            System.out.println("Enter State:");
+            String state = scanner.nextLine();
 
-        System.out.println("Enter Zip:");
-        int zip = scanner.nextInt();
+            System.out.println("Enter Zip:");
+            int zip = scanner.nextInt();
+            scanner.nextLine(); // clear buffer
 
-        scanner.nextLine(); // clear buffer
+            System.out.println("Enter Phone Number:");
+            String phoneNumber = scanner.nextLine();
 
-        System.out.println("Enter Phone Number:");
-        String phoneNumber = scanner.nextLine();
+            Person person = new Person(
+                    firstName,
+                    lastName,
+                    address,
+                    city,
+                    state,
+                    zip,
+                    phoneNumber
+            );
 
-        boolean isUpdated = service.editPerson(
-                firstName, lastName,
-                address, city, state,
-                zip, phoneNumber
-        );
-        if (isUpdated) {
-            System.out.println("\nPerson details updated successfully!");
-        } else {
-            System.out.println("\nPerson not found!");
+            service.addPerson(person);
+
+            System.out.println("\nDo you want to add another person? (yes/no)");
+            String choice = scanner.nextLine();
+
+            if (!choice.equalsIgnoreCase("yes")) {
+                continueAdding = false;
+            }
         }
-
-        boolean isDeleted = service.deletePerson(firstName, lastName);
-
-        if (isDeleted) {
-            System.out.println("\nPerson deleted successfully!");
-        } else {
-            System.out.println("\nPerson not found!");
-        }
-        System.out.println("\n----- Updated Address Book -----");
+        System.out.println("\n----- Address Book -----");
         service.getAllPersons().forEach(System.out::println);
 
         scanner.close();
