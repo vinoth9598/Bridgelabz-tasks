@@ -1,13 +1,15 @@
 
 
 import java.util.Scanner;
+import java.util.* ;
 
 public class AddressBookMain {
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        AddressBookService service = new AddressBookService();
+        List<Person> personList = new ArrayList<>();
+        AddressBookService service = new AddressBookService(personList);
 
         System.out.println("Enter First Name:");
         String firstName = scanner.nextLine();
@@ -32,20 +34,19 @@ public class AddressBookMain {
         System.out.println("Enter Phone Number:");
         String phoneNumber = scanner.nextLine();
 
-        Person person = new Person(
-                firstName,
-                lastName,
-                address,
-                city,
-                state,
-                zip,
-                phoneNumber
+        boolean isUpdated = service.editPerson(
+                firstName, lastName,
+                address, city, state,
+                zip, phoneNumber
         );
+        if (isUpdated) {
+            System.out.println("\nPerson details updated successfully!");
+        } else {
+            System.out.println("\nPerson not found!");
+        }
 
-        service.addPerson(person);
-
-        System.out.println("\n----- Address Book -----");
-        service.getPersonList().forEach(System.out::println);
+        System.out.println("\n----- Updated Address Book -----");
+        service.getAllPersons().forEach(System.out::println);
 
         scanner.close();
     }
