@@ -6,55 +6,27 @@ import java.util.* ;
 public class AddressBookMain {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        AddressBookService service = new AddressBookService();
-        boolean continueAdding = true ;
+        List<Person> personList = new ArrayList<>();
 
-        while(continueAdding){
-            System.out.println("\nEnter First Name:");
-            String firstName = scanner.nextLine();
+        // Sample Data
+        personList.add(new Person("Vinoth", "Kumar", "MG Road",
+                "Chennai", "Tamil Nadu", 600001, "9876543210"));
+        personList.add(new Person("Rahul", "Sharma", "Park Street",
+                "Bangalore", "Karnataka", 560001, "9123456789"));
+        personList.add(new Person("Anita", "Verma", "Link Road",
+                "Mumbai", "Maharashtra", 400001, "9988776655"));
 
-            System.out.println("Enter Last Name:");
-            String lastName = scanner.nextLine();
+        AddressBookService service = new AddressBookService(personList);
 
-            System.out.println("Enter Address:");
-            String address = scanner.nextLine();
+        System.out.println("Press 1 to sort Address Book by Person Name");
+        int choice = scanner.nextInt();
 
-            System.out.println("Enter City:");
-            String city = scanner.nextLine();
-
-            System.out.println("Enter State:");
-            String state = scanner.nextLine();
-
-            System.out.println("Enter Zip:");
-            int zip = scanner.nextInt();
-            scanner.nextLine(); // clear buffer
-
-            System.out.println("Enter Phone Number:");
-            String phoneNumber = scanner.nextLine();
-
-            Person person = new Person(
-                    firstName,
-                    lastName,
-                    address,
-                    city,
-                    state,
-                    zip,
-                    phoneNumber
-            );
-
-            service.addPerson(person);
-
-            System.out.println("\nDo you want to add another person? (yes/no)");
-            String choice = scanner.nextLine();
-
-            if (!choice.equalsIgnoreCase("yes")) {
-                continueAdding = false;
-            }
+        if (choice == 1) {
+            System.out.println("\n----- Sorted Address Book (Alphabetical Order) -----");
+            service.sortByPersonName()
+                    .forEach(System.out::println);
         }
-        System.out.println("\n----- Address Book -----");
-        service.getAllPersons().forEach(System.out::println);
 
         scanner.close();
     }

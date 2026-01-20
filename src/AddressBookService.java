@@ -2,26 +2,23 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.* ;
+import java.util.stream.Collectors ;
 
 public class AddressBookService {
 
-    private final List<Person> personList = new ArrayList<>();
+    private final List<Person> personList;
 
-    public boolean addPerson(Person person) {
-        boolean isDuplicate = personList.stream()
-                .anyMatch(existingPerson -> existingPerson.equals(person));
-
-        if (isDuplicate) {
-            System.out.println("Duplicate Entry! Person already exists.");
-            return false;
-        }
-
-        personList.add(person);
-        System.out.println("Person added successfully!");
-        return true;
+    public AddressBookService(List<Person> personList) {
+        this.personList = personList;
     }
 
-    public List<Person> getAllPersons() {
-        return personList;
+    public List<Person> sortByPersonName() {
+
+        return personList.stream()
+                .sorted(Comparator
+                        .comparing(Person::getFirstName, String.CASE_INSENSITIVE_ORDER)
+                        .thenComparing(Person::getLastName, String.CASE_INSENSITIVE_ORDER))
+                .collect(Collectors.toList());
     }
 }
