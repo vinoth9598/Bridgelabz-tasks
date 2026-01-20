@@ -19,13 +19,43 @@ public class AddressBookMain {
 
         AddressBookService service = new AddressBookService(personList);
 
-        System.out.println("Press 1 to sort Address Book by Person Name");
+        System.out.println("1. View Persons by City");
+        System.out.println("2. View Persons by State");
         int choice = scanner.nextInt();
+        scanner.nextLine(); // clear buffer
 
-        if (choice == 1) {
-            System.out.println("\n----- Sorted Address Book (Alphabetical Order) -----");
-            service.sortByPersonName()
-                    .forEach(System.out::println);
+        switch (choice) {
+            case 1:
+                System.out.println("Enter City:");
+                String city = scanner.nextLine();
+
+                System.out.println("\nPersons in City: " + city);
+                service.viewPersonsInCity(city)
+                        .forEach(System.out::println);
+                break;
+
+            case 2:
+                System.out.println("Enter State:");
+                String state = scanner.nextLine();
+
+                System.out.println("\nPersons in State: " + state);
+                service.viewPersonsInState(state)
+                        .forEach(System.out::println);
+                break;
+
+            default:
+                System.out.println("Invalid choice!");
+        }
+
+        // Optional: Print full dictionaries
+        System.out.println("\n--- City Dictionary ---");
+        for (Map.Entry<String, List<Person>> entry : service.getPersonsByCity().entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+        System.out.println("\n--- State Dictionary ---");
+        for (Map.Entry<String, List<Person>> entry : service.getPersonsByState().entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
         }
 
         scanner.close();

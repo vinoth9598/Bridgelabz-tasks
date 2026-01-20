@@ -13,12 +13,29 @@ public class AddressBookService {
         this.personList = personList;
     }
 
-    public List<Person> sortByPersonName() {
-
+    // Dictionary: City -> List<Person>
+    public Map<String, List<Person>> getPersonsByCity() {
         return personList.stream()
-                .sorted(Comparator
-                        .comparing(Person::getFirstName, String.CASE_INSENSITIVE_ORDER)
-                        .thenComparing(Person::getLastName, String.CASE_INSENSITIVE_ORDER))
+                .collect(Collectors.groupingBy(Person::getCity));
+    }
+
+    // Dictionary: State -> List<Person>
+    public Map<String, List<Person>> getPersonsByState() {
+        return personList.stream()
+                .collect(Collectors.groupingBy(Person::getState));
+    }
+
+    // View persons for a specific city
+    public List<Person> viewPersonsInCity(String city) {
+        return personList.stream()
+                .filter(p -> p.getCity().equalsIgnoreCase(city))
+                .collect(Collectors.toList());
+    }
+
+    // View persons for a specific state
+    public List<Person> viewPersonsInState(String state) {
+        return personList.stream()
+                .filter(p -> p.getState().equalsIgnoreCase(state))
                 .collect(Collectors.toList());
     }
 }
