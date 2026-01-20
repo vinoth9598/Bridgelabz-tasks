@@ -40,6 +40,16 @@ public class AddressBookMain {
         );
 
         service.addPerson(person);
+
+        boolean isUpdated = service.editPerson(
+                firstName,lastName,address,
+                city,state,zip,phoneNumber
+        );
+        if(isUpdated){
+            System.out.println("\nPerson details updated successfully!");
+        }else {
+            System.out.println("\nPerson Not Found!");
+        }
         service.getPersonList().forEach(System.out::println);
 
         sc.close();

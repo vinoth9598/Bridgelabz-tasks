@@ -21,6 +21,20 @@ public class Person {
         this.phoneNumber = phoneNumber ;
     }
 
+//    Getters
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastname(){
+        return lastname ;
+    }
+
+//    Setters
+    public void setAddress(String address){this.address = address;}
+    public void setCity(String city) { this.city = city; }
+    public void setState(String state) { this.state = state; }
+    public void setZip(int zip) { this.zip = zip; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     @Override
     public String toString(){
         return "Contact{" +
