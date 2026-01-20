@@ -1,6 +1,7 @@
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AddressBookService {
@@ -31,6 +32,18 @@ public class AddressBookService {
         return false;
     }
 
+    public boolean deletePerson(String firstName, String lastName){
+        Iterator<Person> iterator = personList.iterator();
+        while (iterator.hasNext()){
+            Person person = iterator.next();
+            if(person.getFirstName().equalsIgnoreCase(firstName) &&
+            person.getLastName().equalsIgnoreCase(lastName)){
+                iterator.remove();
+                return true ;
+            }
+        }
+        return false ;
+    }
     public List<Person> getAllPersons() {
         return personList;
     }

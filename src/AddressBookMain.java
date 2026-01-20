@@ -45,6 +45,13 @@ public class AddressBookMain {
             System.out.println("\nPerson not found!");
         }
 
+        boolean isDeleted = service.deletePerson(firstName, lastName);
+
+        if (isDeleted) {
+            System.out.println("\nPerson deleted successfully!");
+        } else {
+            System.out.println("\nPerson not found!");
+        }
         System.out.println("\n----- Updated Address Book -----");
         service.getAllPersons().forEach(System.out::println);
 
