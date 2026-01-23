@@ -25,3 +25,109 @@ nav a{
 main{
     padding:20px ;
 }
+
+/* Gallery Sytles */
+.container{
+    display: inline-block;
+    margin:10px;
+    background-color: beige;
+    width: 100%;
+    
+}
+.container h2 {
+    background-color: antiquewhite;
+    padding:10px;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:20px ;
+    width: 100%;
+    border:1px solid white ;
+    border-radius: 10px;
+}
+.flowers-content{
+    border: 1px solid white;
+    border-radius: 10px;
+    padding:10px ;
+    box-shadow: 0.3px 0.3px 0.3px;
+    cursor: pointer;
+}
+
+.animals-content{
+    border: 1px solid white;
+    border-radius: 10px;
+    padding:10px ;
+    box-shadow: 0.3px 0.3px 0.3px;
+    cursor: pointer;
+}
+
+
+/* cards styles  */
+
+.conten{
+    display: inline-block;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: darkblue;
+}
+
+.conten h2 {
+    background-color: #555;
+    padding:10px;
+    color:white ;
+    font-weight: 100;
+    border-radius: 5px;
+    border:1px solid black;
+}
+
+.content-lang{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.content-lang,  .lang{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:10px ;
+    padding:10px ;
+}
+
+.len {
+    display: flex;
+    flex-direction: column;
+    border:1px solid lightblue ;
+    border-radius: 10px;
+    margin:10px ;
+    padding:10px ;
+    background-color:lightblue;
+    width:500px ;
+    
+}
+
+.img{
+    text-align: center;
+    border:1px solid lightblue;
+    cursor: pointer;
+}
+
+.para {
+    border:1px solid white ;
+    padding:10px ;
+    border-radius: 10px;
+    box-shadow: 0.1px 0.1px 0.1px;
+    font-family: sans-serif;
+    font-variant: normal;
+    font-size: small;
+    text-align: justify;
+}
+
+.para h4 {
+    color:darkblue ;
+    background-color:whitesmoke;
+    padding:5px ;
+    text-align: center;
+}
