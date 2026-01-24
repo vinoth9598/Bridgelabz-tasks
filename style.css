@@ -131,3 +131,55 @@ main{
     padding:5px ;
     text-align: center;
 }
+
+/* media styles */
+
+.media {
+    display: inline-block;
+    background-color:whitesmoke;
+    padding:10px;
+    margin-left: 10px;
+    width: 100%;
+}
+.media h2 {
+    color:blue ;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.media-content {
+    border:1px solid white ;
+    padding:10px ;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.media-content h3 {
+    color:red ;
+    text-align: center;
+    opacity: 100;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+@media (min-width:300px){
+    .m-content p{
+        font-size: 14px;
+        color:red;
+    }
+}
+
+@media (min-width:800px){
+    .m-content p {
+        font-size: 24px;
+        color:blue ;
+    }
+}
+
+@media (min-width:1200px){
+    .m-content p {
+        font-size: 30px;
+        color:white ;
+        background-color: black;
+        padding:5px ;
+    }
+}
