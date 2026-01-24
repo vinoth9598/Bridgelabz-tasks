@@ -1,17 +1,26 @@
 
-function validateDetails(){
+let form = document.getElementById("myForm") ;
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
     let name = document.getElementById("text").value.trim();
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value.trim();
-    let phoneNumber = document.getElementById("phoneNumber").value.trime();
+    let phoneNumber = document.getElementById("phone").value.trim();
 
     let isValid = true ;
 
+     // clear previous error
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+
     // patterns
-    let namePattern = /^[A-Za-z ]{3,}$/;
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    let namePattern = /^[A-Za-z ]{3,}$/ ;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/ ;
     let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ ;
-    let phonePattern = /^[6-9]\d{9}$/; 
+    let phonePattern = /^[6-9]\d{9}$/ ; 
 
     // Name validation
     if(!namePattern.test(name)){
@@ -44,12 +53,6 @@ function validateDetails(){
         isValid = false
     }
 
-    // clear previous error
-    document.getElementById("nameError").innerHTML = "";
-    document.getElementById("emailError").innerHTML = "";
-    document.getElementById("passwordError").innerHTML = "";
-    document.getElementById("phoneError").innerHTML = "";
-
     return isValid ;
 
-}
+});
