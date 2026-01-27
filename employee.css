@@ -1,0 +1,101 @@
+.container {
+    width: 100%;
+    display: inline-block;
+    margin:0 ;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container-content {
+   display: flex;
+   flex-direction:column;
+   margin-left: 30px;
+   padding:10px ;
+   background-color:lightblue;
+   color:white ;
+   width: 500px;
+   height: auto;
+   border-radius: 20px;
+   box-sizing: border-box;
+   box-shadow: 0.2px 0.3px;
+}
+.container-content h2 {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100;
+    
+}
+
+.emp-content{
+    padding:10px ;
+    width:300px;
+}
+
+.emp-content input{
+    margin-bottom: 10px;
+    width: 280px;
+    padding:10px 10px;
+    outline: none;
+    border:1px solid white;
+    border-radius: 5px;
+    box-shadow: 0.1px 0.2px;
+    font-size: 14px;
+}
+.btn {
+    width: 100%;
+    padding:10px;
+    margin:10px;
+}
+
+.btn button{
+    width: 100px;
+    border:1px solid white ;
+    padding:5px;
+    margin:2px ;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0.2px 0.2px 0.2px;
+}
+
+.btn .btn1{
+    background-color: green;
+    color:white;
+}
+
+
+.btn1:hover {
+    color:green ;
+    background-color: white;
+    font-size: 15px;
+}
+
+
+
+.emp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1)
+}
+
+.emp-table thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.emp-table th, .emp-table td {
+    padding:12px 15px ;
+    border:1px solid #ddd ;
+}
+
+
+.emp-table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.emp-table tbody tr:hover {
+  background-color: #d1f0ea;
+  cursor: pointer;
+}
