@@ -1,0 +1,152 @@
+.container {
+    width: 100vw;
+    display: inline-block;
+    margin:0 ;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:darkblue;
+    height: 100%;
+}
+
+.container-content {
+   display: flex;
+   flex-direction:column;
+   margin: 30px;
+   padding:10px ;
+   background-color:whitesmoke;
+   color:white ;
+   width: 500px;
+   height: auto;
+   border-radius: 20px;
+   box-sizing: border-box;
+   box-shadow: 0.2px 0.3px;
+}
+.container-content h2 {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100;
+    color:#009879;
+    
+}
+
+.emp-content{
+    padding:10px ;
+    width:300px;
+}
+
+.emp-content input{
+    margin-bottom: 10px;
+    width: 280px;
+    padding:10px 10px;
+    outline: none;
+    border:1px solid white;
+    border-radius: 5px;
+    box-shadow: 0.1px 0.2px;
+    font-size: 14px;
+}
+.btn {
+    width: 100%;
+    padding:10px;
+    margin:10px;
+}
+
+.btn button{
+    width: 100px;
+    border:1px solid white ;
+    padding:5px;
+    margin:2px ;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0.2px 0.2px 0.2px;
+}
+
+.btn .btn1{
+    background-color: green;
+    color:white;
+}
+
+.btn .btn2{
+    background-color:orangered;
+    color:white;
+}
+
+.btn1:hover {
+    color:green ;
+    background-color: white;
+    font-size: 15px;
+}
+.btn2:hover {
+    color:orangered ;
+    background-color: white;
+    font-size: 15px;
+}
+
+.emp-table {
+    display:inline-block;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    
+}
+
+.emp-table thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.emp-table th, .emp-table td {
+    padding:12px 15px ;
+    border:1px solid #ddd ;
+    color:white;
+}
+.emp-table button{
+    margin:10px;
+    padding:5px ;
+    border:1px solid black ;
+}
+
+
+.emp-table tbody tr:nth-child(even) {
+  background-color:black;
+  
+}
+
+.emp-table tbody tr:hover {
+  background-color:grey;
+  cursor: pointer;
+}
+
+.head {
+    width:100vw ;
+    height: 30px;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.head p {
+    font-family: 'Courier New', Courier, monospace;
+    color:blue;
+    font-weight: bold;
+}
+.head button{
+    padding:3px;
+    width:100px;
+    border:1px solid white ;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.head button:hover {
+    color:red ;
+    background-color: white;
+    font-size: 14px;
+}
