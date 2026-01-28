@@ -54,5 +54,5 @@ form.addEventListener("submit", function(e){
     }
 
     
-    return isValid ;
+   alert("submit is successfully..");
 });
