@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Book System</title>
+    <link rel="stylesheet" type="text/css" href="./address.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2>Address Book System</h2>
+
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Enter Name" required>
+                <input type="text" id="address" placeholder="Enter Address" required>
+                <input type="text" id="city" placeholder="Enter City" required>
+                <input type="text" id="state" placeholder="Enter State" required>
+                <input type="text" id="zip" placeholder="Enter Zip Code" required>
+                <input type="text" id="phone" placeholder="Enter Phone Number" required>
+                <input type="email" id="email" placeholder="Enter Email" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search by name, city or state...">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contactTable">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./address.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+* { 
+    box-sizing: border-box; 
+    font-family: Arial, Helvetica, sans-serif; 
+}
+body { 
+    background:#f4f6f8; 
+    margin:0; 
+    padding:20px; 
+}
+h1 { 
+    text-align:center; 
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+form input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    grid-column: span 2;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+}
+
+
+form button:hover { 
+    background:#0056b3; 
+}
+
+
+.search-box {
+    margin-bottom: 15px;
+}
+
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead { 
+    background:#007bff; 
+    color:white; 
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.actions button {
+    margin-right: 5px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+.edit { background:#28a745; }
+.delete { background:#dc3545; }
+
+
+@media (max-width: 768px) {
+    form { 
+        grid-template-columns: 1fr; 
+    }
+    form button { 
+        grid-column: span 1; 
+    }
+}
