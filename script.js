@@ -5,8 +5,8 @@ form.addEventListener("submit", function(e){
 
     let name = document.getElementById("text").value.trim();
     let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
-    let phoneNumber = document.getElementById("phone").value.trim();
+    let password = document.getElementById("password").value;
+    let phoneNumber = document.getElementById("phone").value;
 
     let isValid = true ;
 
@@ -19,7 +19,7 @@ form.addEventListener("submit", function(e){
     // patterns
     let namePattern = /^[A-Za-z ]{3,}$/ ;
     let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/ ;
-    let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ ;
+    let passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/ ;
     let phonePattern = /^[6-9]\d{9}$/ ; 
 
     // Name validation
@@ -46,13 +46,13 @@ form.addEventListener("submit", function(e){
     }
 
     // phone number validation
-    if(phonePattern.test(phoneNumber)){
+    if(!phonePattern.test(phoneNumber)){
         document.getElementById("phoneError").innerText = 
         "phone number must be 10 characters and numbers only";
 
         isValid = false
     }
 
+    
     return isValid ;
-
 });
