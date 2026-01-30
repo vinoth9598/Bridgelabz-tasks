@@ -47,19 +47,26 @@ function displayEmployees(){
     let table = document.getElementById("employeeTable");
     table.innerHTML = "";
 
-    employees.forEach(emp => {
+    employees.forEach((emp, index) => {
         let row = document.createElement("tr");
-        row.innerHTML = `
+        row.innerHTML += `
             <td>${emp.name}</td>
             <td>${emp.empId}</td>
             <td>${emp.role}</td>
             <td>${emp.email}</td>
             <td>${emp.salary}</td>
             <td>${emp.hrs}</td>
+            <td><button class="delete" onclick="deleteContact(${index})">Delete</button></td>
         `;
 
         table.appendChild(row);
     });
+}
+
+function deleteContact(index){
+    employees.splice(index, 1);
+    localStorage.setItem("employees", JSON.stringify(employees));
+    displayEmployees();
 }
 
 function clearFields(){
@@ -83,14 +90,4 @@ function reset(){
 };
 
 
-function deleteData(){
-    let text = prompt("You delete all datas!")
 
-    if(text != null){
-        localStorage.removeItem("employees");
-        console.log("Delete successfully");
-        location.reload();
-    }else {
-       alert("delete is cancel");
-    }
-}

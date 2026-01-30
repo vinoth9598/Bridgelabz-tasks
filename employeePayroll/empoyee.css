@@ -150,3 +150,16 @@
     background-color: white;
     font-size: 14px;
 }
+
+.delete {
+    border:1px solid red ;
+    background-color: red;
+    width:100px;
+    border-radius: 5px;
+    box-sizing: 0.2px 0.1px;
+    color:white;
+}
+.delete:hover {
+    background-color: white;
+    color:red ;
+}
