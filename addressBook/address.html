@@ -7,45 +7,32 @@
     <link rel="stylesheet" type="text/css" href="./address.css">
 </head>
 <body>
-    <div class="container">
-        <div>
-            <h2>Address Book System</h2>
+   <div class="container">
+        <h1>Address Book System</h1>
 
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Enter Name" required>
-                <input type="text" id="address" placeholder="Enter Address" required>
-                <input type="text" id="city" placeholder="Enter City" required>
-                <input type="text" id="state" placeholder="Enter State" required>
-                <input type="text" id="zip" placeholder="Enter Zip Code" required>
-                <input type="text" id="phone" placeholder="Enter Phone Number" required>
-                <input type="email" id="email" placeholder="Enter Email" required>
-                <button type="submit">Save</button>
-            </form>
-        </div>
-
-        <div class="search-box">
-            <input type="text" id="search" placeholder="Search by name, city or state...">
-        </div>
+        <form id="addressForm">
+            <input type="text" id="fname" placeholder="Full Name" required />
+            <input type="text" id="phone" placeholder="Phone Number" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="text" id="city" placeholder="City" required />
+            <button type="submit" class="add-btn">Add Contact</button>
+        </form>
 
         <table>
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Actions</th>
+                    <th>City</th>
+                    <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="contactTable">
+            <tbody id="contactList">
 
             </tbody>
         </table>
     </div>
-
     <script src="./address.js"></script>
 </body>
 </html>
