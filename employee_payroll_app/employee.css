@@ -1,0 +1,147 @@
+*{
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
+}
+
+body { 
+    padding: 20px; 
+    background-image: url("./img/payroll.jpg");
+    background-size:cover;
+}
+
+h2 { 
+    padding:10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center; 
+    color:blue;
+    background-color: white;
+}
+
+.container{
+    margin: auto; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+form { 
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: auto;
+    background-color: whitesmoke;
+    border:1px solid lightblue ;
+    padding:10px;
+}
+
+form input{
+    padding:6px ;
+    width:300px;
+    font-size: 14px;
+    font-family: sans-serif;
+    border:1px solid green ;
+    outline: none;
+    box-shadow: 0.1px 0.2px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding:10px;
+    background-color: lightgray;
+}
+
+.btn a{
+    width: 80px;
+    padding:5px;
+    font-size: 12px;
+    cursor: pointer;
+    border:1px solid lightblue;
+    text-transform: uppercase;
+    box-shadow: 0.2px 0.2px;
+    text-align: center;
+    align-items: center;
+}
+
+.create {
+    background-color: green;
+    color:white ;
+}
+.create:hover {
+    background-color:white;
+    color:green ;
+   
+}
+.update {
+    background-color:orangered;
+    color:white ;
+    
+}
+.update:hover {
+    background-color:white;
+    color:orangered;
+    
+}
+
+.read:hover {
+    background-color:white;
+    color:blue ;
+    
+}
+.delete {
+    background-color:red;
+    color:white ;
+    
+}
+.delete:hover {
+    background-color:white;
+    color:red;
+   
+}
+
+
+/* table design  */
+
+.table {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    cursor: pointer;
+    margin:10px;
+    overflow: auto;
+}
+table {
+    width: 100%;
+    padding:10px;
+}
+
+table thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+.table th{
+    padding:12px ;
+    border:1px solid #ddd ;
+    color:black;
+}
+
+.table td {
+    padding:12px ;
+    border:1px solid #ddd ;
+    color:blue;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+
+
+

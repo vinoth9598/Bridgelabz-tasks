@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payroll App</title>
+    <link rel="stylesheet" type="text/css" href="./employee.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <h2>Employee Payroll Service</h2>
+                <form onsubmit="saveData(event)">
+                    <input type="hidden" id="editIndex">
+
+                    Name: <input type="text" id="name" required>
+                    Age: <input type="number" id="age" required>
+
+                    <button type="submit">Save</button>
+                </form>
+            <div class="form-content">
+                <form id="formContent">
+                    <h2>Create New Employee</h2>
+                    <input type="text" id="empName" placeholder="Enter Name" required><br>
+                    <input type="number" id="empId" placeholder="Enter Employee Id" required><br>
+                    <input type="email" id="email" placeholder="Enter Email" required><br>
+                    <input type="number" id="contact" placeholder="Enter Contact" required><br>
+                    <button type="submit" class="create">Submit New Employee</button>
+                </form>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                   <tr>
+                    <th>Profile</th>
+                    <th>Name</th>
+                    <th>Employee Id</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                   </tr> 
+                </thead>
+                <tbody id="table-content">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./employee.js"></script>
+</body>
+
+</html>
