@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Employee Payroll App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ================= CSS ================= -->
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Employee Payroll Application</h1>
+            <p>Web Intro Stage – HTML, CSS, JS, Flexbox, Async</p>
+        </header>
+
+        <div class="container">
+
+        <!-- ============ Employee Form ============ -->
+        <div class="form-card">
+            <h2>Add Employee</h2>
+
+            <form id="empForm">
+                <div class="form-row">
+                    <label>
+                    Name
+                    <input type="text" id="name" required />
+                    </label>
+
+                    <label>
+                    Salary
+                    <input type="number" id="salary" required />
+                    </label>
+
+                    <label>
+                    Department
+                    <select id="department">
+                        <option>IT</option>
+                        <option>HR</option>
+                        <option>Finance</option>
+                    </select>
+                    </label>
+                </div>
+
+                <button type="submit">Add Employee</button>
+            </form>
+        </div>
+
+        <!-- ============ Employee Table ============ -->
+        <div class="table-card">
+            <h2>Employee List</h2>
+
+            <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Department</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="empTable"></tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- ================= JavaScript ================= -->
+    <script src="./script.js"></script>
+
+
+    </body>
+</html>
