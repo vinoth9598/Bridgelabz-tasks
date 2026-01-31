@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Employee Payroll Service</title>
+    <style>
+        table { border-collapse: collapse; width: 60%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+    </style>
+    </head>
+    <body>
+
+        <!-- use run db.json server -> json-server --watch db.json --port 3000  -->
+        <h2>Employee Payroll</h2>
+
+        <form onsubmit="addEmployee(event)">
+            Name: <input type="text" id="name" required>
+            Salary: <input type="number" id="salary" required>
+            <button>Add Employee</button>
+        </form>
+
+        <br>
+
+        <table>
+            <thead>
+                <tr>
+                <th>ID</th><th>Name</th><th>Salary</th><th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="empTable">
+
+            </tbody>
+        </table>
+
+        <script src="employeeService.js"></script>
+    </body>
+</html>
